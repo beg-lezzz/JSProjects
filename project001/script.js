@@ -143,14 +143,19 @@ class Bank {
 
         if (curAccount.sum > sum) {
             curAccount.sum -= sum;
-            console.log(`Списание со счета ${account} суммы ${sum}. Остаток ${curAccount.sum} у.е.`);
+            console.log(`Списание со счета ${account} суммы ${sum} у.е. Остаток ${curAccount.sum} у.е.`);
         } else {
             console.log(`На счете ${account} недостаточно средств. Остаток ${curAccount.sum} у.е.`)
         }
     }
 
     checkBalance(account) {
-        console.log(`Остаток на счете №${account} ${this.accounts.find((item) => (item.number === account)).sum} у.е.`)
+        const curAccount = this.accounts.find((item) => (item.number === account));
+        if (curAccount) {
+            console.log(`Остаток на счете №${account} ${this.accounts.find((item) => (item.number === account)).sum} у.е.`)
+        } else {
+            console.log(`Счет №${account} не найден в банке ${this.name}. Уточните реквизиты и повторите попытку позднее.`)
+        }
     }
 }
 
@@ -199,3 +204,4 @@ bank.deposit(1, 1200);
 bank.withdraw(1, 1500);
 bank.withdraw(2, 50);
 bank.withdraw(2, 1000);
+bank.checkBalance(3);
