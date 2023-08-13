@@ -23,7 +23,7 @@ localUsers.forEach((user) => {
     const userCard = document.createElement('div');
     userCard.id = `${user.id}`;
     for (const userKey in user) {
-        console.log(userKey)
+        // console.log(userKey)
         if (userKey !== 'id') {
             if (typeof user[userKey] === 'object') {
                 userCard.insertAdjacentHTML('beforeend',
@@ -53,16 +53,16 @@ const rec = (arg) => {
 let buttonsArray = document.querySelectorAll('button');
 buttonsArray.forEach((btn) => {
     btn.addEventListener('click', (event) => {
-        document.getElementById(btn.id).remove();
-
-        const index = localUsers.findIndex(n => Number(n.id) === Number(btn.id));
-        console.log(index);
+        // document.getElementById(btn.id).remove();
+        console.log(btn.parentElement.id);
+        btn.parentElement.remove();
+        const index = localUsers.findIndex(n => Number(n.id) === Number(btn.parentElement.id));
         if (index !== -1) {
             localUsers.splice(index, 1);
         }
-        console.log(localUsers);
+        // console.log(localUsers);
         localStorage.setItem('users', JSON.stringify(localUsers));
-        console.log(JSON.parse(localStorage.getItem('users')));
+        // console.log(JSON.parse(localStorage.getItem('users')));
     })
 })
 
