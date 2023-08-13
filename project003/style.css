@@ -8,12 +8,11 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 5px;
-    /*background-color: darkgray;*/
 }
 
 .user-card {
     padding: 5px;
-    /*border: 1px solid #ccc;*/
     text-align: left;
     background: #ccc;
+    flex-grow: 1;
 }
