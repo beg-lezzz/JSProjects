@@ -1,18 +1,83 @@
 * {
-    margin: 0;
+    margin: 0px;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Roboto Light", sans-serif;
 }
+
 
 .wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 5px;
+    margin: 5px;
+    padding: 5px;
+    position: relative;
 }
 
 .user-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 5px;
+    gap: 10px;
     text-align: left;
     background: #ccc;
-    flex-grow: 1;
+    border-radius: 10px;
 }
+
+.user-card-info {
+    padding: 5px;
+}
+
+.user-info {
+    padding: 5px;
+}
+
+.full-user-info {
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.card-buttons {
+    display: flex;
+    padding: 5px;
+    justify-content: space-between;
+}
+
+.card-button {
+    padding: 5px;
+    font-weight: bold;
+}
+
+.popup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: dimgrey;
+    opacity: 0.95;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+}
+
+.cross {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 30px;
+    color: white;
+}
+
+.user-popup-info {
+    padding: 20px;
+    /*background: #ccc;*/
+    opacity: 1;
+    width: 100%;
+    color: white;
+}
+
