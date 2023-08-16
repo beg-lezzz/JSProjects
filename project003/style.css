@@ -3,16 +3,44 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Roboto Light", sans-serif;
+    transition: all 0.5s ease-out;
+    text-decoration: none;
 }
 
+.head {
+    padding: 15px;
+    margin: 15px;
+}
+
+.link-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+    border-radius: 5px;
+    background: #ccc;
+    width: 250px;
+    height: 25px;
+
+}
+
+.link {
+    display: block;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: center;
+}
 
 .wrapper {
+    padding-left: calc(50% - 670px);
+    padding-right: calc(50% - 670px);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 0.25fr));
     gap: 5px;
-    margin: 5px;
-    padding: 5px;
     position: relative;
+    transition: 300ms;
 }
 
 .user-card {
@@ -51,6 +79,7 @@
 }
 
 .popup {
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -74,10 +103,28 @@
 }
 
 .user-popup-info {
-    padding: 20px;
-    /*background: #ccc;*/
+    padding-left: calc(50% - 670px);
+    padding-right: calc(50% - 670px);
+    padding-bottom: 20px;
     opacity: 1;
     width: 100%;
     color: white;
 }
 
+.dog-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dog-img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.img-wrapper {
+    border-radius: 15px;
+}

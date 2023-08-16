@@ -1,20 +1,18 @@
+import {getFiniteValue} from "./src/getFiniteValue.js";
+import {writeToLocalStorage, getDataFromAPI} from "./src/apiFunctions.js";
 
 const urlAPI = 'https://jsonplaceholder.typicode.com/users';
 
-const getDataFromAPI = async (urlAPI) => {
-    const res = await fetch(urlAPI);
-    return await res.json();
-};
+writeToLocalStorage(urlAPI);
 
-try {
-    const users = await getDataFromAPI(urlAPI);
-    localStorage.setItem('users', JSON.stringify(users));
-} catch (e) {
-    console.error(e);
-}
 
-const localUsers = JSON.parse(localStorage.getItem('users'));
-console.log(localUsers);
+const localUsersDirt = JSON.parse(localStorage.getItem('users'));
+
+const localUsers = [];
+
+localUsersDirt.forEach((user) => {
+    localUsers.push(getFiniteValue(user));
+})
 
 const div = document.querySelector('.wrapper');
 
@@ -42,14 +40,6 @@ localUsers.forEach((user) => {
         `<button id="${user.id}" class="info-button card-button">Show more</button>`);
     div.append(userCard);
 })
-
-const rec = (arg) => {
-    if (typeof arg !== 'object') {
-        return arg;
-    } else {
-        return rec(arg);
-    }
-}
 
 let buttonsDeleteArray = document.querySelectorAll('.delete-button');
 buttonsDeleteArray.forEach((btn) => {
